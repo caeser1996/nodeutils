@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js" integrity="sha512-iZIBSs+gDyTH0ZhUem9eQ1t4DcEn2B9lHxfRMeGQhyNdSUz+rb+5A3ummX6DQTOIs1XK0gOteOg/LPtSo9VJ+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
+    <script>
+      var socket = io.connect('http://localhost:5000');
+      socket.on('message', function (data) {
+        //console.log(data.lines);
+        // Update the tag
+        var tail = document.getElementById('tail');
+        tail.innerHTML = data.lines;
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <p>Browserstack--</p>
+    </div>
+    <div>
+      <p>Here are the logs (tail -f):</p>
+    </div>
+    <div>
+      <p id="tail"></p>
+    </div>
+</html>
